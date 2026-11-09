@@ -4,305 +4,403 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#fff1f5">
-<title>NISHA × DANISH | Forever Love ❤️</title>
+<meta name="theme-color" content="#fff4f7">
 
+<title>NISHA × DANISH | Forever & Always ❤️</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
+:root {
+  --pink:#d65b82;
+  --deep:#a93660;
+  --rose:#c28a9c;
+  --text:#593644;
+  --muted:#967886;
+  --cream:#fff8fa;
+}
 
-body{
-  font-family:'DM Sans',sans-serif;
-  color:#633849;
-  background:linear-gradient(135deg,#fff8fa,#ffe9ef,#fff5f7);
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html { scroll-behavior:smooth; }
+
+body {
   min-height:100vh;
+  font-family:'DM Sans',sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(ellipse at 10% 10%,#ffe0e9,transparent 40%),
+    radial-gradient(ellipse at 90% 90%,#f9dfe8,transparent 40%),
+    #fff8fa;
   overflow-x:hidden;
 }
 
-.topbar{
+button { font-family:inherit; cursor:pointer; }
+
+#hearts {
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:20;
+}
+
+.heart-particle {
+  position:absolute;
+  bottom:-50px;
+  animation:rise linear forwards;
+}
+
+@keyframes rise {
+  to {
+    transform:translateY(-110vh) rotate(360deg);
+    opacity:0;
+  }
+}
+
+header {
   padding:22px 7%;
   display:flex;
   justify-content:space-between;
+  align-items:center;
   position:relative;
-  z-index:3;
+  z-index:5;
 }
 
-.logo{
+.logo {
   font:700 27px 'Playfair Display',serif;
-  color:#b83e69;
+  color:var(--deep);
 }
 
-.logo span{color:#e38aa7}
+.logo span { color:var(--pink); }
 
-.top-label{
+.header-text {
+  color:var(--muted);
   font-size:10px;
   letter-spacing:3px;
-  color:#b47b8d;
 }
 
-main{
-  min-height:80vh;
-  padding:25px 15px 45px;
+main {
+  min-height:78vh;
+  padding:25px 15px 60px;
   display:flex;
-  align-items:center;
   justify-content:center;
+  align-items:center;
   position:relative;
   z-index:2;
 }
 
-.screen{
+.screen {
   display:none;
   width:100%;
   justify-content:center;
 }
 
-.screen.active{
+.screen.active {
   display:flex;
-  animation:appear .8s ease;
+  animation:enter .8s ease;
 }
 
-@keyframes appear{
-  from{opacity:0;transform:translateY(20px)}
-  to{opacity:1;transform:translateY(0)}
+@keyframes enter {
+  from {opacity:0;transform:translateY(25px)}
+  to {opacity:1;transform:translateY(0)}
 }
 
-.card{
+.card {
   width:100%;
-  max-width:680px;
-  padding:55px 35px;
+  max-width:720px;
+  padding:55px 40px;
   text-align:center;
   background:rgba(255,255,255,.88);
   border:1px solid white;
   border-radius:30px;
-  box-shadow:0 20px 65px #bd68821b;
+  box-shadow:0 25px 80px rgba(170,65,100,.12);
+  backdrop-filter:blur(15px);
 }
 
-.eyebrow{
-  color:#c17c91;
+.eyebrow {
+  color:var(--rose);
   font-size:10px;
   font-weight:700;
   letter-spacing:4px;
   margin-bottom:20px;
 }
 
-h1,h2{
+h1,h2,h3 {
   font-family:'Playfair Display',serif;
 }
 
-h1{
-  font-size:clamp(38px,7vw,58px);
+h1 {
+  font-size:clamp(38px,7vw,64px);
   line-height:1.2;
-  color:#693a4b;
+  color:var(--text);
+  margin-bottom:22px;
+}
+
+h1 span {
+  color:var(--pink);
+  font-style:italic;
+}
+
+h2 {
+  font-size:32px;
+  color:var(--deep);
   margin-bottom:20px;
 }
 
-h1 span{color:#d65b82;font-style:italic}
-
-h2{
-  font-size:30px;
-  color:#b83e69;
-  margin-bottom:20px;
-}
-
-p{
-  line-height:1.9;
-}
-
-.subtitle{
-  color:#997583;
-  font-size:14px;
-  max-width:470px;
+.subtitle {
+  color:var(--muted);
+  max-width:490px;
   margin:0 auto 28px;
+  font-size:14px;
+  line-height:2;
 }
 
-button{
+.primary {
   border:0;
-  cursor:pointer;
-  font-family:inherit;
-  transition:.25s;
-}
-
-.primary{
-  background:linear-gradient(135deg,#e8799c,#b93266);
-  color:white;
-  padding:15px 30px;
+  padding:16px 32px;
   border-radius:50px;
+  color:white;
+  background:linear-gradient(135deg,#e984a4,#b83c68);
+  font-size:13px;
   font-weight:700;
-  box-shadow:0 10px 25px #d65b8235;
+  box-shadow:0 10px 25px #d65b8230;
+  transition:.3s;
 }
 
-.primary:hover{transform:translateY(-3px)}
+.primary:hover {
+  transform:translateY(-4px);
+  box-shadow:0 15px 30px #d65b8240;
+}
 
-.flower{
-  font-size:65px;
+.flower {
+  font-size:70px;
   margin-bottom:20px;
   animation:float 3s infinite;
 }
 
-@keyframes float{
-  50%{transform:translateY(-10px)}
+@keyframes float {
+  50% {transform:translateY(-12px)}
 }
 
-.letter{
-  text-align:left;
-  background:#fff4f7;
-  border:1px solid #f6dce4;
+.signature {
+  color:var(--pink);
+  font:italic 22px 'Playfair Display',serif;
+  margin-top:25px;
+}
+
+/* LOVE LETTER */
+
+.letter {
+  background:#fff3f6;
+  border:1px solid #f5dbe3;
+  padding:28px;
   border-radius:20px;
-  padding:25px;
+  text-align:left;
   margin:25px 0;
 }
 
-.letter p{
-  color:#795563;
+.letter p {
   font-size:14px;
+  color:#805b6a;
+  line-height:2;
   margin-bottom:15px;
 }
 
-.signature{
-  color:#d65b82;
-  font:italic 22px 'Playfair Display',serif;
-  margin:20px 0 25px;
-}
+.letter p:last-child {margin-bottom:0}
 
-.reasons{
+/* REASONS */
+
+.reason-grid {
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:13px;
-  margin:25px 0;
-  text-align:left;
+  gap:14px;
+  margin:30px 0;
 }
 
-.reason{
-  padding:18px;
+.reason {
+  padding:22px 15px;
   background:#fff4f7;
-  border:1px solid #f8dce5;
-  border-radius:17px;
-  font-size:13px;
-  color:#805364;
-}
-
-.reason strong{
-  display:block;
-  color:#c34e75;
-  margin-bottom:6px;
-  font-size:15px;
-}
-
-.journey{
+  border:1px solid #f5dce4;
+  border-radius:18px;
   text-align:left;
-  margin:30px auto;
-  max-width:450px;
 }
 
-.journey-item{
+.reason .emoji {
+  font-size:27px;
+  margin-bottom:10px;
+}
+
+.reason h3 {
+  font-size:18px;
+  color:#bd5276;
+  margin-bottom:7px;
+}
+
+.reason p {
+  color:var(--muted);
+  font-size:12px;
+  line-height:1.8;
+}
+
+/* MEMORIES */
+
+.memory-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  margin:30px 0;
+}
+
+.memory {
+  min-height:150px;
+  border-radius:20px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,#ffe0e9,#fff1f5);
+  border:1px solid white;
+  padding:20px;
+}
+
+.memory:nth-child(2) {
+  background:linear-gradient(135deg,#fce4ed,#f9d5e3);
+}
+
+.memory:nth-child(3) {
+  background:linear-gradient(135deg,#fff0e9,#f9e0e8);
+}
+
+.memory:nth-child(4) {
+  background:linear-gradient(135deg,#f8e1ed,#fff3f7);
+}
+
+.memory .emoji {font-size:42px}
+.memory p {
+  font:italic 17px 'Playfair Display',serif;
+  color:#a64e6c;
+  margin-top:10px;
+}
+
+/* JOURNEY */
+
+.timeline {
+  text-align:left;
+  max-width:470px;
+  margin:30px auto;
+}
+
+.event {
   border-left:2px solid #e7a2b7;
-  padding:5px 0 25px 22px;
+  padding:0 0 28px 24px;
   position:relative;
 }
 
-.journey-item:before{
+.event:before {
   content:'♥';
   position:absolute;
   left:-10px;
   top:0;
-  color:#d65b82;
+  color:var(--pink);
   background:white;
-  font-size:15px;
 }
 
-.journey-item strong{
+.event h3 {
+  font-size:20px;
   color:#b83e69;
-  font-family:'Playfair Display',serif;
-  font-size:19px;
 }
 
-.journey-item p{
-  color:#997583;
+.event p {
   font-size:13px;
+  color:var(--muted);
+  line-height:1.8;
   margin-top:5px;
 }
 
-.question-heart{
-  font-size:75px;
-  animation:beat 1.3s infinite;
+/* QUESTION */
+
+.big-heart {
+  font-size:80px;
+  animation:heartbeat 1.2s infinite;
   margin-bottom:20px;
 }
 
-@keyframes beat{
-  50%{transform:scale(1.15)}
+@keyframes heartbeat {
+  50% {transform:scale(1.15)}
 }
 
-.buttons{
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  gap:20px;
-  margin-top:30px;
-  min-height:100px;
+.question-area {
   position:relative;
+  min-height:145px;
+  margin-top:20px;
 }
 
-.yes{
-  background:linear-gradient(135deg,#e8799c,#b93266);
-  color:white;
-  padding:15px 38px;
+.yes-btn,.no-btn {
+  padding:15px 35px;
   border-radius:50px;
+  border:0;
+  font-size:14px;
   font-weight:700;
+}
+
+.yes-btn {
+  color:white;
+  background:linear-gradient(135deg,#e984a4,#b83c68);
   box-shadow:0 10px 25px #d65b8235;
 }
 
-.no{
-  background:#f6e5eb;
+.no-btn {
+  background:#f6e7ed;
   color:#a36b7d;
-  padding:15px 30px;
-  border-radius:50px;
-  font-weight:700;
   position:relative;
-  z-index:5;
-  touch-action:manipulation;
+  z-index:25;
 }
 
-.hint{
+.hint {
+  color:var(--rose);
   font-size:12px;
-  color:#bd8496;
-  margin-top:15px;
+  margin-top:10px;
 }
 
-.celebration-heart{
-  font-size:90px;
-  animation:beat .8s infinite;
-  margin-bottom:20px;
+/* CELEBRATION */
+
+.celebrate-heart {
+  font-size:95px;
+  animation:heartbeat .8s infinite;
 }
 
-.forever{
-  color:#d65b82;
-  font:italic 25px 'Playfair Display',serif;
+.forever {
+  color:var(--pink);
+  font:italic 26px 'Playfair Display',serif;
   margin:25px 0;
 }
 
-.background-hearts{
+/* MUSIC CONTROL */
+
+.music-btn {
   position:fixed;
-  inset:0;
-  pointer-events:none;
-  overflow:hidden;
-  z-index:1;
+  right:18px;
+  bottom:18px;
+  z-index:30;
+  background:white;
+  color:var(--deep);
+  border:1px solid #f4d6e1;
+  padding:12px 17px;
+  border-radius:50px;
+  box-shadow:0 5px 20px #b83e6920;
+  font-size:12px;
 }
 
-.particle{
-  position:absolute;
-  bottom:-50px;
-  animation:rise linear forwards;
-}
+/* FOOTER */
 
-@keyframes rise{
-  to{
-    transform:translateY(-110vh) rotate(360deg);
-    opacity:0;
-  }
-}
-
-footer{
+footer {
   text-align:center;
   padding:20px;
   color:#bd9aa5;
@@ -310,22 +408,24 @@ footer{
   letter-spacing:3px;
 }
 
-@media(max-width:600px){
-  .topbar{padding:20px 6%}
-  .top-label{font-size:8px;letter-spacing:2px}
-  .card{padding:40px 20px;border-radius:24px}
-  h1{font-size:38px}
-  h2{font-size:25px}
-  .subtitle{font-size:13px}
-  .letter{padding:18px}
-  .letter p{font-size:13px}
-  .reasons{gap:9px}
-  .reason{padding:13px;font-size:12px}
-  .buttons{gap:12px}
+@media(max-width:600px) {
+  header {padding:20px 6%}
+  .header-text {font-size:8px;letter-spacing:2px}
+  main {padding:15px 13px 35px}
+  .card {padding:38px 20px;border-radius:24px}
+  h1 {font-size:39px}
+  h2 {font-size:26px}
+  .subtitle {font-size:13px}
+  .letter {padding:19px}
+  .letter p {font-size:13px}
+  .reason-grid,.memory-grid {gap:9px}
+  .reason {padding:15px 11px}
+  .reason h3 {font-size:16px}
+  .memory {min-height:125px;padding:12px}
 }
 
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
     animation-duration:.01ms!important;
     transition-duration:.01ms!important;
   }
@@ -335,128 +435,194 @@ footer{
 
 <body>
 
-<div class="background-hearts" id="hearts"></div>
+<div id="hearts"></div>
 
-<header class="topbar">
+<header>
   <div class="logo">N <span>♡</span> D</div>
-  <div class="top-label">OUR LITTLE WORLD</div>
+  <div class="header-text">FOREVER & ALWAYS</div>
 </header>
 
 <main>
 
-<!-- WELCOME -->
+<!-- 1. WELCOME -->
 <section class="screen active" id="welcome">
 <div class="card">
   <div class="flower">🌷</div>
-  <p class="eyebrow">A LITTLE SOMETHING FOR YOU</p>
-  <h1>Hey Nisha,<br><span>My Favourite Person.</span></h1>
+  <p class="eyebrow">A LITTLE WORLD MADE FOR YOU</p>
+  <h1>Dear Nisha,<br><span>You Are My Favourite.</span></h1>
   <p class="subtitle">
-    Duniya mein bahut saare beautiful moments hain,
-    lekin mere favourite moments woh hain
-    jinmein tum hoti ho. ❤️
+    Agar meri duniya ek beautiful story hoti,
+    toh uski favourite character tum hoti. ❤️
+    Welcome to our little world.
   </p>
   <button class="primary" onclick="go('letter')">
-    Open My Heart 💌
+    Enter Our World 💗
   </button>
-  <p class="signature">Made with love by Danish</p>
+  <p class="signature">With love, Danish</p>
 </div>
 </section>
 
-<!-- LOVE LETTER -->
+<!-- 2. LOVE LETTER -->
 <section class="screen" id="letter">
 <div class="card">
   <div class="flower">💌</div>
-  <p class="eyebrow">A LETTER FROM DANISH</p>
-  <h2>Dear Nisha,</h2>
-
+  <p class="eyebrow">WORDS FROM MY HEART</p>
+  <h2>My Dear Nisha,</h2>
   <div class="letter">
     <p>Hey Nisha! ❤️</p>
     <p>
-      Pata hai, kabhi kabhi words kam pad jaate hain
-      jab kisi special person ke baare mein likhna ho.
+      Kabhi kabhi sochta hoon ki tumhe kaise bataun
+      ki tum mere liye kitni special ho.
     </p>
     <p>
-      Tumhari smile mere boring din ko bhi beautiful
-      bana sakti hai. Tumhari chhoti-chhoti baatein
-      mere liye bahut special hain.
+      Tumhari smile, tumhari baatein aur tumhara
+      saath mere ordinary moments ko bhi special bana deta hai.
     </p>
     <p>
-      Main perfect nahi hoon, lekin meri feelings
-      tumhare liye bilkul genuine hain.
-      Main chahta hoon ki tum hamesha khush raho,
-      smile karti raho aur apne saare dreams achieve karo.
+      Main tumse koi perfection expect nahi karta.
+      Bas chahta hoon ki tum hamesha apni real self raho,
+      khush raho aur apne dreams complete karo.
     </p>
     <p>
-      Bas itna kehna hai: You are special,
-      more than words can explain. 💗
+      Life mein ups and downs aayenge, lekin main
+      chahta hoon ki hum ek dusre ko samjhein,
+      respect karein aur saath mein grow karein.
+    </p>
+    <p>
+      You are not just a part of my story.
+      You are one of my favourite chapters. 💗
     </p>
   </div>
-
-  <p class="signature">With love, Danish ❤️</p>
+  <p class="signature">Always yours, Danish ❤️</p>
   <button class="primary" onclick="go('reasons')">
-    One More Thing 🌹
+    Why You're Special 🌹
   </button>
 </div>
 </section>
 
-<!-- REASONS -->
+<!-- 3. REASONS -->
 <section class="screen" id="reasons">
 <div class="card">
   <div class="flower">🥰</div>
-  <p class="eyebrow">A FEW REASONS</p>
-  <h1>Why You're <span>Special</span></h1>
-  <p class="subtitle">There are a million reasons, but here are a few...</p>
+  <p class="eyebrow">A MILLION LITTLE REASONS</p>
+  <h1>Why I Love <span>You</span></h1>
+  <p class="subtitle">
+    Kuch feelings words mein explain karna mushkil hota hai...
+  </p>
 
-  <div class="reasons">
-    <div class="reason"><strong>🌸 Your Smile</strong>Tumhari smile sabse pyari hai.</div>
-    <div class="reason"><strong>💗 Your Heart</strong>Tumhara caring nature.</div>
-    <div class="reason"><strong>✨ Your Vibe</strong>Tumhare saath sab special lagta hai.</div>
-    <div class="reason"><strong>🥰 Just YOU</strong>Because you're simply you.</div>
+  <div class="reason-grid">
+    <div class="reason">
+      <div class="emoji">🌸</div>
+      <h3>Your Smile</h3>
+      <p>Tumhari smile mere din ko beautiful bana deti hai.</p>
+    </div>
+    <div class="reason">
+      <div class="emoji">💗</div>
+      <h3>Your Heart</h3>
+      <p>Tumhari kindness aur caring nature.</p>
+    </div>
+    <div class="reason">
+      <div class="emoji">✨</div>
+      <h3>Your Presence</h3>
+      <p>Tumhare saath ordinary moments bhi special lagte hain.</p>
+    </div>
+    <div class="reason">
+      <div class="emoji">🦋</div>
+      <h3>Your Uniqueness</h3>
+      <p>Because there is nobody quite like you.</p>
+    </div>
+    <div class="reason">
+      <div class="emoji">🌹</div>
+      <h3>Your Dreams</h3>
+      <p>I love seeing you grow and achieve your goals.</p>
+    </div>
+    <div class="reason">
+      <div class="emoji">❤️</div>
+      <h3>Just You</h3>
+      <p>Without any reason, simply because you are Nisha.</p>
+    </div>
   </div>
 
-  <button class="primary" onclick="go('journey')">
-    Our Little Journey 💞
+  <button class="primary" onclick="go('memories')">
+    Our Beautiful Memories 📸
   </button>
 </div>
 </section>
 
-<!-- JOURNEY -->
+<!-- 4. MEMORIES -->
+<section class="screen" id="memories">
+<div class="card">
+  <div class="flower">📸</div>
+  <p class="eyebrow">LITTLE MOMENTS, BIG FEELINGS</p>
+  <h1>Our <span>Memories</span></h1>
+  <p class="subtitle">
+    Har beautiful moment ek memory ban sakta hai.
+    Let's make many more. 💕
+  </p>
+
+  <div class="memory-grid">
+    <div class="memory">
+      <div class="emoji">🌷</div>
+      <p>Our Beginning</p>
+    </div>
+    <div class="memory">
+      <div class="emoji">🥰</div>
+      <p>Our Smiles</p>
+    </div>
+    <div class="memory">
+      <div class="emoji">🌙</div>
+      <p>Our Talks</p>
+    </div>
+    <div class="memory">
+      <div class="emoji">💞</div>
+      <p>Our Moments</p>
+    </div>
+  </div>
+
+  <p class="hint">More beautiful memories are waiting for us...</p>
+  <br>
+  <button class="primary" onclick="go('journey')">
+    Continue Our Story 💗
+  </button>
+</div>
+</section>
+
+<!-- 5. JOURNEY -->
 <section class="screen" id="journey">
 <div class="card">
   <div class="flower">🌹</div>
-  <p class="eyebrow">A BEAUTIFUL STORY</p>
+  <p class="eyebrow">EVERY STORY HAS A MAGIC</p>
   <h1>Our <span>Journey</span></h1>
-  <p class="subtitle">Har beautiful story ka apna ek magic hota hai.</p>
 
-  <div class="journey">
-    <div class="journey-item">
-      <strong>The Beginning 🌸</strong>
-      <p>Jab tum meri life mein aayi aur sab kuch thoda special lagne laga.</p>
+  <div class="timeline">
+    <div class="event">
+      <h3>The Beginning 🌸</h3>
+      <p>Ek chhoti si beginning, jo mere liye special ban gayi.</p>
     </div>
-    <div class="journey-item">
-      <strong>The Smiles 💗</strong>
-      <p>Woh chhoti-chhoti baatein jo face par smile le aati hain.</p>
+    <div class="event">
+      <h3>The Conversations 💬</h3>
+      <p>Woh baatein jo kabhi khatam hi nahi karna chahta.</p>
     </div>
-    <div class="journey-item">
-      <strong>The Memories ✨</strong>
-      <p>Woh moments jo dil mein hamesha special rahenge.</p>
+    <div class="event">
+      <h3>The Beautiful Moments ✨</h3>
+      <p>Chhoti-chhoti memories jo dil ke kareeb hain.</p>
     </div>
-    <div class="journey-item">
-      <strong>More To Come ❤️</strong>
-      <p>Abhi toh hamari story ke bahut beautiful pages baaki hain.</p>
+    <div class="event">
+      <h3>The Future ❤️</h3>
+      <p>Abhi bahut saare beautiful chapters likhne baaki hain.</p>
     </div>
   </div>
 
   <button class="primary" onclick="go('question')">
-    Something I Want To Ask 💍
+    One Last Question 💍
   </button>
 </div>
 </section>
 
-<!-- FINAL QUESTION -->
+<!-- 6. QUESTION -->
 <section class="screen" id="question">
 <div class="card">
-  <div class="question-heart">❤️</div>
+  <div class="big-heart">❤️</div>
   <p class="eyebrow">A QUESTION FROM MY HEART</p>
   <h1>Nisha,<br><span>Will You Be Mine?</span></h1>
   <p class="subtitle">
@@ -464,30 +630,32 @@ footer{
     share karna chahogi? 🥺
   </p>
 
-  <div class="buttons">
-    <button class="yes" onclick="sayYes()">YES! ❤️</button>
-    <button class="no" id="noBtn">NO 🙈</button>
+  <div class="question-area" id="questionArea">
+    <button class="yes-btn" onclick="sayYes()">YES! ❤️</button>
+    <button class="no-btn" id="noBtn">NO 🙈</button>
   </div>
-  <p class="hint" id="hint">Try clicking NO... if you can! 😉</p>
+
+  <p class="hint" id="hint">NO button ko pakadna easy nahi hai! 😉</p>
 </div>
 </section>
 
-<!-- FINAL CELEBRATION -->
+<!-- 7. CELEBRATION -->
 <section class="screen" id="celebration">
 <div class="card">
-  <div class="celebration-heart">💖</div>
+  <div class="celebrate-heart">💖</div>
   <p class="eyebrow">A BEAUTIFUL NEW CHAPTER</p>
-  <h1>You're My <span>Favourite</span></h1>
+  <h1>You Are My <span>Happiness</span></h1>
   <h2>NISHA × DANISH</h2>
   <p class="subtitle">
-    Nisha, tumhari smile hamesha aise hi bani rahe.
-    Tumhari happiness mere liye bahut important hai.
-    Thank you for being you. ❤️
+    Thank you for being you, Nisha.
+    I hope your life is always filled with happiness,
+    smiles and beautiful moments.
   </p>
-  <div class="letter">
-    <p style="text-align:center">
-      "I don't need a perfect story.
-      I just want a beautiful one with you." 💗
+  <div class="letter" style="text-align:center">
+    <p>
+      "I don't need a perfect world.
+      I just wish to share beautiful moments
+      with someone as special as you." ❤️
     </p>
   </div>
   <p class="forever">Today, Tomorrow & Always ♡</p>
@@ -497,89 +665,165 @@ footer{
 
 </main>
 
-<footer>CRAFTED WITH ♡ BY DANISH</footer>
+<button class="music-btn" id="musicBtn" onclick="toggleMusic()">
+  ♫ Play Music
+</button>
+
+<footer>MADE WITH ENDLESS LOVE BY DANISH ❤️</footer>
 
 <script>
-function go(id){
+// SCREEN NAVIGATION
+function go(id) {
   document.querySelectorAll('.screen').forEach(s=>{
     s.classList.remove('active');
   });
+
   document.getElementById(id).classList.add('active');
+
   window.scrollTo({top:0,behavior:'smooth'});
-  hearts(12);
+  makeHearts(12);
 }
 
-// Floating hearts
-function hearts(count=5){
-  const container=document.getElementById('hearts');
+// FLOATING HEARTS
+function makeHearts(amount=5) {
+  const box=document.getElementById('hearts');
   const icons=['❤️','💕','💗','💖','🌸','✨'];
 
-  for(let i=0;i<count;i++){
+  for(let i=0;i<amount;i++) {
     const el=document.createElement('span');
-    el.className='particle';
+    el.className='heart-particle';
     el.textContent=icons[Math.floor(Math.random()*icons.length)];
     el.style.left=Math.random()*100+'%';
     el.style.fontSize=(15+Math.random()*25)+'px';
 
-    const duration=4+Math.random()*5;
-    el.style.animationDuration=duration+'s';
-    container.appendChild(el);
+    const time=4+Math.random()*5;
+    el.style.animationDuration=time+'s';
+    box.appendChild(el);
 
-    setTimeout(()=>el.remove(),duration*1000);
+    setTimeout(()=>el.remove(),time*1000);
   }
 }
 
-setInterval(()=>hearts(2),1800);
+setInterval(()=>makeHearts(2),1800);
 
-// NO button runs away
+// NO BUTTON - RUN AWAY
 const noBtn=document.getElementById('noBtn');
 const hint=document.getElementById('hint');
+const questionArea=document.getElementById('questionArea');
+
 let noCount=0;
 
-function runAway(){
+function moveNoButton() {
   noCount++;
 
   const messages=[
     "Oops! NO bhaag gaya! 😂",
     "Nisha, pakad ke dikhao! 🙈",
-    "Hehe! Phir se miss ho gaya! 💗",
-    "Arey! NO toh bahut fast hai! 😂",
+    "Hehe! Phir se miss! 💗",
+    "NO button bahut fast hai! 🏃",
     "Ek baar YES bhi try kar lo! ❤️",
-    "NO ko toh tumse darr lagta hai! 🌹"
+    "Danish ne isko wings de diye! 😂"
   ];
 
-  hint.textContent=messages[Math.min(noCount-1,messages.length-1)];
+  hint.textContent=messages[
+    Math.min(noCount-1,messages.length-1)
+  ];
 
-  const margin=20;
-  const maxX=Math.max(0,window.innerWidth-noBtn.offsetWidth-margin*2);
-  const maxY=Math.max(0,window.innerHeight-noBtn.offsetHeight-margin*2);
+  // Place NO button randomly inside visible screen
+  const rect=questionArea.getBoundingClientRect();
+  const maxX=Math.max(0,window.innerWidth-noBtn.offsetWidth-30);
+  const maxY=Math.max(0,window.innerHeight-noBtn.offsetHeight-30);
 
   noBtn.style.position='fixed';
-  noBtn.style.left=(margin+Math.random()*maxX)+'px';
-  noBtn.style.top=(margin+Math.random()*maxY)+'px';
-  noBtn.style.zIndex='10';
+  noBtn.style.left=(15+Math.random()*maxX)+'px';
+  noBtn.style.top=(15+Math.random()*maxY)+'px';
+  noBtn.style.zIndex='40';
 
-  hearts(5);
+  makeHearts(4);
 }
 
-// Mouse and touch interactions
-noBtn.addEventListener('pointerdown',function(e){
-  e.preventDefault();
-  runAway();
+// Mouse hover
+noBtn.addEventListener('pointerenter',e=>{
+  if(e.pointerType==='mouse') moveNoButton();
 });
 
-// YES celebration
-function sayYes(){
+// Touch or click
+noBtn.addEventListener('pointerdown',e=>{
+  e.preventDefault();
+  moveNoButton();
+});
+
+// YES
+function sayYes() {
+  noBtn.style.display='none';
   go('celebration');
-  hearts(70);
+  makeHearts(80);
 }
 
-function celebrate(){
-  hearts(50);
+// Celebration
+function celebrate() {
+  makeHearts(60);
 }
 
-// Background hearts
-hearts(15);
+// ORIGINAL SOFT MUSIC - GENERATED IN BROWSER
+let audioContext=null;
+let musicTimer=null;
+let musicPlaying=false;
+let noteIndex=0;
+
+const notes=[261.63,329.63,392,329.63,293.66,349.23,440,349.23];
+
+function playNote() {
+  if(!musicPlaying || !audioContext) return;
+
+  const now=audioContext.currentTime;
+  const osc=audioContext.createOscillator();
+  const gain=audioContext.createGain();
+
+  osc.type='sine';
+  osc.frequency.value=notes[noteIndex%notes.length];
+
+  gain.gain.setValueAtTime(0.0001,now);
+  gain.gain.exponentialRampToValueAtTime(0.035,now+0.08);
+  gain.gain.exponentialRampToValueAtTime(0.0001,now+0.9);
+
+  osc.connect(gain);
+  gain.connect(audioContext.destination);
+
+  osc.start(now);
+  osc.stop(now+1);
+
+  noteIndex++;
+}
+
+async function toggleMusic() {
+  const btn=document.getElementById('musicBtn');
+
+  if(musicPlaying) {
+    musicPlaying=false;
+    clearInterval(musicTimer);
+    btn.textContent='♫ Play Music';
+    return;
+  }
+
+  const AudioContextClass=window.AudioContext||window.webkitAudioContext;
+
+  if(!AudioContextClass) {
+    btn.textContent='Music unavailable';
+    return;
+  }
+
+  if(!audioContext) audioContext=new AudioContextClass();
+
+  await audioContext.resume();
+
+  musicPlaying=true;
+  playNote();
+  musicTimer=setInterval(playNote,650);
+  btn.textContent='♫ Pause Music';
+}
+
+makeHearts(15);
 </script>
 
 </body>
