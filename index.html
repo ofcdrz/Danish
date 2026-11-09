@@ -1,0 +1,530 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#fff4f7">
+<title>NISHA × DANISH | Our Love Story ❤️</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --pink:#d65b82;
+  --deep:#ad365f;
+  --rose:#bd8291;
+  --text:#49303a;
+  --muted:#927580;
+  --white:#fff;
+}
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body {
+  min-height:100vh;
+  font-family:'DM Sans',sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 10% 10%,#ffe0e9,transparent 35%),
+    radial-gradient(circle at 90% 90%,#fce1e9,transparent 35%),
+    linear-gradient(135deg,#fff9fa,#fff0f4);
+  overflow-x:hidden;
+}
+
+button {
+  font-family:inherit;
+  cursor:pointer;
+}
+
+.topbar {
+  padding:24px 7%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  position:relative;
+  z-index:5;
+}
+
+.logo {
+  color:var(--deep);
+  font-family:'Playfair Display',serif;
+  font-size:27px;
+  font-weight:700;
+}
+
+.logo span {color:var(--rose)}
+
+.top-label {
+  color:var(--muted);
+  font-size:10px;
+  letter-spacing:3px;
+}
+
+main {
+  min-height:calc(100vh - 120px);
+  padding:25px 15px 40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  z-index:2;
+}
+
+.screen {
+  width:100%;
+  display:none;
+  justify-content:center;
+  align-items:center;
+}
+
+.screen.active {
+  display:flex;
+  animation:fadeIn .8s ease;
+}
+
+@keyframes fadeIn {
+  from {opacity:0;transform:translateY(20px)}
+  to {opacity:1;transform:translateY(0)}
+}
+
+.card {
+  width:100%;
+  max-width:650px;
+  padding:60px 45px;
+  text-align:center;
+  background:rgba(255,255,255,.85);
+  border:1px solid white;
+  border-radius:30px;
+  box-shadow:0 25px 70px rgba(177,76,111,.13);
+  backdrop-filter:blur(15px);
+}
+
+.flower {
+  font-size:65px;
+  margin-bottom:20px;
+  animation:float 3s ease-in-out infinite;
+}
+
+.eyebrow {
+  color:var(--rose);
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:4px;
+  margin-bottom:20px;
+}
+
+h1,h2 {
+  font-family:'Playfair Display',serif;
+}
+
+h1 {
+  color:var(--text);
+  font-size:clamp(38px,7vw,60px);
+  line-height:1.2;
+  margin-bottom:20px;
+}
+
+h1 span {color:var(--pink);font-style:italic}
+
+h2 {
+  color:var(--deep);
+  font-size:30px;
+}
+
+.subtitle {
+  max-width:450px;
+  margin:0 auto 30px;
+  color:var(--muted);
+  font-size:14px;
+  line-height:2;
+}
+
+.primary-btn,.yes-btn,.no-btn {
+  padding:15px 30px;
+  border:0;
+  border-radius:50px;
+  font-size:14px;
+  font-weight:700;
+  transition:.3s;
+}
+
+.primary-btn,.yes-btn {
+  color:white;
+  background:linear-gradient(135deg,#e8799c,#b93266);
+  box-shadow:0 10px 25px rgba(198,75,116,.23);
+}
+
+.primary-btn:hover,.yes-btn:hover {
+  transform:translateY(-4px);
+  box-shadow:0 15px 30px rgba(198,75,116,.3);
+}
+
+.bottom-note {
+  margin-top:35px;
+  color:#bd9aa5;
+  font-size:9px;
+  letter-spacing:3px;
+}
+
+.envelope {
+  font-size:65px;
+  margin-bottom:20px;
+  animation:float 3s infinite;
+}
+
+.letter {
+  margin:25px 0;
+  padding:25px;
+  background:#fff5f7;
+  border:1px solid #f7dce4;
+  border-radius:20px;
+  text-align:left;
+}
+
+.letter p {
+  color:#795663;
+  font-size:14px;
+  line-height:2;
+  margin-bottom:15px;
+}
+
+.letter p:last-child {margin-bottom:0}
+
+.signature {
+  font-family:'Playfair Display',serif;
+  font-size:20px;
+  font-style:italic;
+  color:var(--pink);
+  line-height:1.8;
+  margin-bottom:25px;
+}
+
+.big-heart {
+  font-size:70px;
+  margin-bottom:20px;
+  animation:heartbeat 1.4s infinite;
+}
+
+@keyframes heartbeat {
+  0%,100% {transform:scale(1)}
+  50% {transform:scale(1.15)}
+}
+
+.buttons {
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
+  margin-top:30px;
+}
+
+.yes-btn {min-width:130px}
+
+.no-btn {
+  color:#a36b7d;
+  background:#f8e8ed;
+}
+
+.hint {
+  margin-top:25px;
+  font-size:12px;
+  color:var(--rose);
+}
+
+.celebration-heart {
+  font-size:90px;
+  animation:heartbeat .9s infinite;
+  margin-bottom:20px;
+}
+
+.love-message {
+  background:#fff2f5;
+  padding:22px;
+  border-radius:18px;
+  color:#a45e76;
+  font-family:'Playfair Display',serif;
+  font-size:18px;
+  font-style:italic;
+  line-height:1.8;
+  margin:25px 0;
+}
+
+.forever {
+  color:var(--pink);
+  font-family:'Playfair Display',serif;
+  font-size:25px;
+  font-style:italic;
+  margin-bottom:25px;
+}
+
+footer {
+  padding:20px;
+  text-align:center;
+  position:relative;
+  z-index:2;
+}
+
+footer p {
+  font-size:9px;
+  color:#bd9aa5;
+  letter-spacing:3px;
+}
+
+.background-hearts {
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:1;
+}
+
+.heart-particle {
+  position:absolute;
+  bottom:-50px;
+  animation:floatUp linear forwards;
+  opacity:.7;
+}
+
+@keyframes floatUp {
+  to {
+    transform:translateY(-110vh) rotate(360deg);
+    opacity:0;
+  }
+}
+
+@keyframes float {
+  0%,100% {transform:translateY(0)}
+  50% {transform:translateY(-10px)}
+}
+
+@media(max-width:600px) {
+  .topbar {padding:20px 6%}
+  .top-label {font-size:8px;letter-spacing:2px}
+  main {padding:15px 13px 25px}
+  .card {padding:42px 22px;border-radius:25px}
+  h1 {font-size:39px}
+  h2 {font-size:26px}
+  .subtitle {font-size:13px}
+  .letter {padding:19px}
+  .letter p {font-size:13px}
+  .buttons {gap:12px}
+  .yes-btn,.no-btn {padding:14px 25px}
+}
+
+@media(prefers-reduced-motion:reduce) {
+  *,*::before,*::after {
+    animation-duration:.01ms!important;
+    transition-duration:.01ms!important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="background-hearts" id="hearts"></div>
+
+<header class="topbar">
+  <div class="logo">N <span>♡</span> D</div>
+  <div class="top-label">A LITTLE LOVE STORY</div>
+</header>
+
+<main>
+
+  <!-- WELCOME -->
+  <section class="screen active" id="welcome">
+    <div class="card">
+      <div class="flower">🌷</div>
+      <p class="eyebrow">SOMETHING SPECIAL FOR YOU</p>
+
+      <h1>Hey Nisha,<br><span>My Beautiful Girl.</span></h1>
+
+      <p class="subtitle">
+        Aaj tumhare liye kuch special hai.
+        Bas ek chhoti si request hai...
+        Is surprise ko end tak dekhna. ❤️
+      </p>
+
+      <button class="primary-btn" onclick="openLetter()">
+        Open Your Surprise 💌
+      </button>
+
+      <p class="bottom-note">MADE WITH LOVE BY DANISH</p>
+    </div>
+  </section>
+
+  <!-- LETTER -->
+  <section class="screen" id="letter">
+    <div class="card">
+      <div class="envelope">💌</div>
+      <p class="eyebrow">A LETTER FROM MY HEART</p>
+      <h2>Dear Nisha,</h2>
+
+      <div class="letter">
+        <p>
+          Pata nahi kaise kahun, lekin tum meri life
+          ka ek bahut special part ban chuki ho.
+        </p>
+
+        <p>
+          Tumhari smile, tumhari baatein aur tumhara
+          saath mere liye bahut मायने rakhta hai.
+        </p>
+
+        <p>
+          Main nahi jaanta future mein kya hoga,
+          lekin itna zaroor jaanta hoon ki tumhare
+          saath har moment special lagta hai.
+        </p>
+
+        <p>
+          Aur aaj main tumse dil ki ek baat kehna chahta hoon...
+        </p>
+      </div>
+
+      <p class="signature">Always yours,<br>Danish ❤️</p>
+
+      <button class="primary-btn" onclick="showProposal()">
+        Ek Baat Poochun? 🌹
+      </button>
+    </div>
+  </section>
+
+  <!-- PROPOSAL -->
+  <section class="screen" id="proposal">
+    <div class="card">
+      <div class="big-heart">❤️</div>
+      <p class="eyebrow">ONE QUESTION, A MILLION FEELINGS</p>
+
+      <h1>Nisha,<br><span>Will You Be Mine?</span></h1>
+
+      <p class="subtitle">
+        Kya tum meri life ki is beautiful story
+        ka hamesha hissa banna chahogi? 🥺
+      </p>
+
+      <div class="buttons">
+        <button class="yes-btn" onclick="sayYes()">YES! ❤️</button>
+        <button class="no-btn" onclick="sayNo()">NO 🙈</button>
+      </div>
+
+      <p class="hint" id="hint">
+        Dil se jawab dena, Nisha... 💗
+      </p>
+    </div>
+  </section>
+
+  <!-- CELEBRATION -->
+  <section class="screen" id="celebration">
+    <div class="card">
+      <div class="celebration-heart">💖</div>
+
+      <p class="eyebrow">A NEW CHAPTER BEGINS</p>
+      <h1>She Said YES!</h1>
+      <h2>NISHA × DANISH</h2>
+
+      <p class="subtitle">
+        Nisha, tumne meri smile ki wajah
+        aur bhi special bana di. ❤️
+      </p>
+
+      <div class="love-message">
+        "Yeh sirf ek YES nahi hai,
+        balki ek beautiful beginning hai."
+      </div>
+
+      <p class="forever">Forever & Always ♡</p>
+
+      <button class="primary-btn" onclick="hug()">
+        One More Hug? 🤗
+      </button>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>CRAFTED WITH ♡ BY DANISH</p>
+</footer>
+
+<script>
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(screen => {
+    screen.classList.remove('active');
+  });
+
+  document.getElementById(id).classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function openLetter() {
+  showScreen('letter');
+  createHearts(12);
+}
+
+function showProposal() {
+  showScreen('proposal');
+  createHearts(15);
+}
+
+let noCount = 0;
+
+function sayNo() {
+  const messages = [
+    "Nisha, ek baar phir soch lo! 🥺",
+    "Koi baat nahi, tumhari choice important hai. ❤️",
+    "Danish tumhari honesty ki respect karta hai. 🌹",
+    "Take your time, Nisha. 💗"
+  ];
+
+  document.getElementById('hint').textContent =
+    messages[Math.min(noCount, messages.length - 1)];
+
+  noCount++;
+}
+
+function sayYes() {
+  showScreen('celebration');
+  createHearts(60);
+}
+
+function createHearts(amount=5) {
+  const container = document.getElementById('hearts');
+  const emojis = ['❤️','💕','💗','💖','🌸'];
+
+  for(let i=0;i<amount;i++) {
+    const heart = document.createElement('span');
+
+    heart.className = 'heart-particle';
+    heart.textContent = emojis[
+      Math.floor(Math.random()*emojis.length)
+    ];
+
+    heart.style.left = Math.random()*100+'%';
+    heart.style.fontSize = (15+Math.random()*25)+'px';
+
+    const duration = 4+Math.random()*5;
+    heart.style.animationDuration = duration+'s';
+
+    container.appendChild(heart);
+
+    setTimeout(()=>heart.remove(),duration*1000);
+  }
+}
+
+function hug() {
+  createHearts(45);
+}
+
+setInterval(()=>createHearts(2),1800);
+</script>
+
+</body>
+</html>
