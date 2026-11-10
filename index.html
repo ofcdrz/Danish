@@ -1,169 +1,97 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#fff1f5">
-<title>For Nisha, With Love — Danish</title>
-<style>
-:root{--pink:#df7898;--deep:#9d365d;--ink:#4b2635;--soft:#fff7fa;--line:#f0cbd8}
-*{box-sizing:border-box}
-html,body{margin:0;min-height:100%;font-family:Georgia,'Times New Roman',serif;color:var(--ink)}
-body{min-height:100svh;background:radial-gradient(ellipse at 50% 15%,#fff 0,#fff4f7 48%,#f8dce7 100%);overflow:hidden}
-button{font:inherit}
-.topbar{position:fixed;top:0;left:0;right:0;z-index:5;padding:17px 20px;display:flex;align-items:center;justify-content:space-between;background:#fff8fbdc;backdrop-filter:blur(12px);border-bottom:1px solid #edcbd7}
-.brand{font-size:15px;letter-spacing:.12em;color:#a34b6a}
-.counter{font:12px Arial,sans-serif;color:#a36b7e;letter-spacing:.1em}
-.progress{position:fixed;top:56px;left:0;width:100%;height:3px;background:#f4dce5;z-index:6}
-.progress span{display:block;height:100%;width:16.666%;background:linear-gradient(90deg,#eaa1b8,#a94369);transition:width .35s}
-main{min-height:100svh;padding:80px 16px 94px;display:grid;place-items:center}
-.screen{display:none;width:min(850px,100%);max-height:calc(100svh - 180px);overflow:auto;animation:appear .45s ease both;text-align:center;padding:12px 5px}
-.screen.active{display:block}
-@keyframes appear{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-.kicker{text-transform:uppercase;letter-spacing:.24em;font:11px Arial,sans-serif;color:#ad607a}
-h1{font-size:clamp(48px,10vw,88px);font-weight:400;line-height:1;margin:18px 0;color:#963b5e}
-h1 em{color:#d66f94}
-h2{font-size:clamp(32px,6vw,48px);font-weight:400;color:#963b5e;margin:12px 0 20px}
-p{line-height:1.8}
-.lead{max-width:590px;margin:0 auto 26px;font-size:clamp(16px,2.5vw,20px);color:#76505e}
-.card{background:#ffffffc9;border:1px solid var(--line);border-radius:22px;padding:clamp(22px,5vw,42px);box-shadow:0 18px 50px #9b47651a;max-width:720px;margin:24px auto;text-align:left;line-height:1.95;font-size:17px}
-.signature{text-align:right;color:#a64268;font-style:italic;font-size:22px;margin-top:20px}
-.reasons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;max-width:680px;margin:28px auto}
-.reason{background:#fff9fb;border:1px solid var(--line);border-radius:17px;padding:22px 14px;line-height:1.6}
-.reason b{display:block;font-size:27px;color:#d36d91;font-weight:400;margin-bottom:7px}
-.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;max-width:700px;margin:25px auto}
-.photo{background:#fff;padding:10px 10px 15px;box-shadow:0 14px 35px #63334620;transform:rotate(-1deg);cursor:pointer}
-.photo:nth-child(2){transform:rotate(1deg)}
-.photo img{width:100%;height:clamp(200px,35vh,330px);object-fit:cover;display:block}
-.photo:nth-child(2) img{object-position:center}
-.caption{font-size:16px;font-style:italic;color:#94516a;padding-top:12px}
-.timeline{max-width:600px;margin:25px auto;text-align:left;border-left:1px solid #dfa4b8;padding-left:25px}
-.moment{position:relative;padding:0 0 22px 8px;line-height:1.7}
-.moment:before{content:"♡";position:absolute;left:-37px;top:0;color:#d56e91;background:#fff0f5;border-radius:50%;width:24px;height:24px;text-align:center}
-.proposal{background:#fff9fb;border:1px solid var(--line);border-radius:24px;padding:clamp(24px,5vw,42px);max-width:700px;margin:20px auto;box-shadow:0 18px 50px #9b47651a}
-.controls{position:fixed;bottom:0;left:0;right:0;z-index:5;padding:15px 18px calc(15px + env(safe-area-inset-bottom));display:flex;justify-content:center;gap:12px;background:#fff8fbdc;backdrop-filter:blur(12px);border-top:1px solid #edcbd7}
-.btn{border:0;border-radius:999px;padding:13px 24px;background:linear-gradient(120deg,#d96f93,#a83e66);color:white;cursor:pointer;box-shadow:0 9px 25px #c45c8133;transition:.2s}
-.btn:hover{transform:translateY(-2px)}
-.btn.secondary{background:#fff;color:#a64268;border:1px solid #d98ca7;box-shadow:none}
-.btn:disabled{opacity:.35;cursor:not-allowed;transform:none}
-#noBtn{position:relative}
-#answer{display:none;color:#9d365d;font-size:19px;line-height:1.8;margin:22px auto 0;max-width:540px}
-.heart{position:fixed;bottom:-30px;pointer-events:none;z-index:8;animation:floatUp linear forwards;color:#e98aaa;opacity:.7}
-@keyframes floatUp{to{transform:translateY(-110vh) rotate(30deg);opacity:0}}
-.lightbox{position:fixed;inset:0;background:#180b12ed;display:none;place-items:center;padding:20px;z-index:20}
-.lightbox img{max-width:95vw;max-height:85vh;object-fit:contain;border:9px solid white}
-.lightbox button{position:absolute;right:18px;top:16px;border:0;border-radius:50%;width:42px;height:42px;background:white;color:#7c2949;font-size:24px}
-@media(max-width:560px){
- .topbar{padding:14px 16px}.progress{top:48px}
- main{padding:68px 13px 88px}
- .screen{max-height:calc(100svh - 155px);padding:8px 2px}
- .reasons{gap:9px}.reason{padding:17px 10px;font-size:14px}
- .gallery{gap:10px}.photo{padding:7px 7px 12px}.photo img{height:clamp(170px,30vh,250px)}.caption{font-size:14px}
- .card{font-size:16px}
- .controls{gap:9px}.btn{padding:12px 20px}
-}
-@media(max-height:650px){.screen{max-height:calc(100svh - 145px)}main{padding-top:65px;padding-bottom:80px}.photo img{height:180px}}
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ffb8d4">
+<title>A little question for Nisha 💗</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="topbar"><div class="brand">DANISH ♡ NISHA</div><div class="counter" id="counter">01 / 06</div></header>
-<div class="progress"><span id="progress"></span></div>
-<main>
-  <section class="screen active" data-title="Welcome">
-    <div class="kicker">A little piece of my heart</div>
-    <h1>For <em>Nisha</em></h1>
-    <p class="lead">Some people make ordinary moments feel magical. You do that to my world, every single day.</p>
-    <p style="color:#b36a83;font-size:28px">♡</p>
-    <p class="lead">I made something small, just for you.</p>
-  </section>
+<div class="pixel-sky" aria-hidden="true"><span>♡</span><span>✦</span><span>♡</span><span>✧</span><span>♡</span><span>✦</span></div>
+<header class="top"><div class="pixel-logo">NISHA.EXE <span>♥</span></div><div class="top-right"><span class="status-dot"></span> PLAYER 1 ONLINE</div></header>
 
-  <section class="screen" data-title="Love Letter">
-    <div class="kicker">A letter from Danish</div><h2>My dearest Nisha,</h2>
-    <div class="card">
-      I may not always find the perfect words, but I hope you never doubt what you mean to me. Your smile makes my hardest days softer, and even the simplest moments become special when I share them with you.
-      <br><br>I don't need a perfect story. I just want one where we keep choosing each other, keep laughing together, and keep making memories — one little moment at a time.
-      <br><br>Thank you for being my favourite person and my sweetest reason to smile.
-      <div class="signature">Always yours,<br>Danish ♡</div>
-    </div>
-  </section>
-
-  <section class="screen" data-title="Reasons">
-    <div class="kicker">Little things, big feelings</div><h2>Reasons I adore you</h2>
-    <p class="lead">I could write a thousand reasons, but these come straight from my heart.</p>
-    <div class="reasons">
-      <div class="reason"><b>♡</b>Your smile can make my whole day brighter.</div>
-      <div class="reason"><b>✧</b>With you, even silence feels comfortable.</div>
-      <div class="reason"><b>∞</b>You make ordinary memories unforgettable.</div>
-      <div class="reason"><b>🌹</b>You are my favourite person to choose, every day.</div>
-    </div>
-  </section>
-
-  <section class="screen" data-title="Our Photos">
-    <div class="kicker">Captured moments</div><h2>Our little world</h2>
-    <p class="lead">Two moments, a thousand feelings. Tap a photo to see it closer.</p>
-    <div class="gallery">
-      <div class="photo" onclick="openPhoto('nisha-memory-1.png')"><img src="nisha-memory-1.png" alt="A sweet couple memory"><div class="caption">That smile I never get tired of ♡</div></div>
-      <div class="photo" onclick="openPhoto('nisha-memory-2.png')"><img src="nisha-memory-2.png" alt="A special hand-holding memory"><div class="caption">A hand I never want to let go ✨</div></div>
-    </div>
-  </section>
-
-  <section class="screen" data-title="Our Journey">
-    <div class="kicker">And the story continues</div><h2>Our beautiful journey</h2>
-    <p class="lead">The best chapters are still waiting for us.</p>
-    <div class="timeline">
-      <div class="moment"><b>One special beginning</b><br>When two lives started making room for each other.</div>
-      <div class="moment"><b>Little moments, endless memories</b><br>The smiles, the talks, the silly things — all becoming precious.</div>
-      <div class="moment"><b>More chapters to come</b><br>More sunsets, more laughter, and more reasons to say “I'm glad it's you.”</div>
-    </div>
-  </section>
-
-  <section class="screen" data-title="The Question">
-    <div class="kicker">One question, from my heart</div>
-    <div class="proposal">
-      <h2>Nisha, will you keep making memories with me?</h2>
-      <p class="lead">No matter what, you will always have a special place in my heart.</p>
-      <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:22px">
-        <button class="btn" onclick="sayYes()">YES, ALWAYS ♡</button>
-        <button class="btn secondary" id="noBtn" onmouseenter="runAway()" ontouchstart="runAway()">NO 🙈</button>
+<main class="wrap">
+  <section class="screen active" id="intro">
+    <div class="mail-window">
+      <div class="window-bar"><span>INBOX.exe</span><span>□ ×</span></div>
+      <div class="mail-content">
+        <div class="mail-icon">✉</div>
+        <p class="micro">YOU HAVE 1 NEW MESSAGE</p>
+        <h1>Open pls...</h1>
+        <p class="mail-from">FROM: someone who likes you ♡</p>
+        <button class="pixel-btn primary" id="openMail">OPEN MESSAGE <span>▶</span></button>
       </div>
-      <div id="answer">You just made my heart the happiest! I choose you, Nisha — today, tomorrow, and in all the little moments ahead. ❤️<br><br>With all my love, Danish.</div>
+    </div>
+    <p class="hint">psst... this message is definitely not a virus.</p>
+  </section>
+
+  <section class="screen" id="ask">
+    <div class="game-window">
+      <div class="window-bar"><span>LOVE_QUEST.exe</span><span>♥ ♥ ♥</span></div>
+      <div class="game-content">
+        <div class="pixel-bear" aria-hidden="true">ʕ♡ᴥ♡ʔ</div>
+        <p class="micro">A VERY IMPORTANT QUESTION</p>
+        <h1> Nisha,<br>will you go out<br>with me? <span class="blinking">_</span></h1>
+        <p class="sub">I promise good food, silly jokes<br>and a really lovely time. 💗</p>
+        <div class="choice-row">
+          <button class="pixel-btn primary" id="yes">YES! ♥</button>
+          <button class="pixel-btn secondary" id="no">NO...</button>
+        </div>
+        <p class="tiny">CHOOSE WISELY, PLAYER 1</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="yay">
+    <div class="game-window yay-window">
+      <div class="window-bar"><span>QUEST COMPLETE!</span><span>★ ★ ★</span></div>
+      <div class="game-content">
+        <div class="big-heart">♥</div>
+        <p class="micro">ACHIEVEMENT UNLOCKED</p>
+        <h1 class="yay-title">YAY!!!</h1>
+        <p class="sub">You just made me the happiest<br>person in the whole world!</p>
+        <div class="confetti-line">✦ ♥ ✧ ♥ ✦</div>
+        <button class="pixel-btn primary" id="plan">LET'S PLAN OUR DATE →</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="date">
+    <div class="game-window date-window">
+      <div class="window-bar"><span>DATE_PLANNER.exe</span><span>♥</span></div>
+      <div class="game-content">
+        <p class="micro">LEVEL 02 — THE FUN PART</p>
+        <h1 class="date-title">Pick our first<br>little adventure!</h1>
+        <div class="date-options">
+          <button class="date-option" data-choice="Dinner date 🍝"><span class="option-icon">🍝</span><span><b>DINNER DATE</b><small>Good food & long talks</small></span><i>→</i></button>
+          <button class="date-option" data-choice="Movie date 🎬"><span class="option-icon">🎬</span><span><b>MOVIE DATE</b><small>Popcorn, please!</small></span><i>→</i></button>
+          <button class="date-option" data-choice="Picnic date 🧺"><span class="option-icon">🧺</span><span><b>PICNIC DATE</b><small>Sunshine & sweet moments</small></span><i>→</i></button>
+        </div>
+        <p class="tiny">YOU CAN'T PICK A WRONG ANSWER ♡</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="screen" id="finish">
+    <div class="game-window">
+      <div class="window-bar"><span>DATE_SAVED.exe</span><span>♥</span></div>
+      <div class="game-content">
+        <div class="big-heart">💗</div>
+        <p class="micro">NEW MEMORY INCOMING</p>
+        <h1 class="yay-title">IT'S A DATE!</h1>
+        <p class="sub">Our plan: <strong id="chosenDate"></strong></p>
+        <p class="sub">Now all that's left is to make<br>this a day to remember. ✨</p>
+        <button class="pixel-btn secondary" id="restart">PLAY AGAIN ↻</button>
+      </div>
     </div>
   </section>
 </main>
-<nav class="controls" aria-label="Story navigation">
-  <button class="btn secondary" id="backBtn" onclick="move(-1)" disabled>← Back</button>
-  <button class="btn" id="nextBtn" onclick="move(1)">Start the story ♡</button>
-</nav>
-<div class="lightbox" id="lightbox" onclick="closePhoto()"><button aria-label="Close" onclick="closePhoto()">×</button><img id="lightboxImg" src="" alt="Our memory" onclick="event.stopPropagation()"></div>
-<script>
-const screens=[...document.querySelectorAll('.screen')];let current=0;
-const back=document.getElementById('backBtn'),next=document.getElementById('nextBtn');
-function showScreen(i){
- current=Math.max(0,Math.min(screens.length-1,i));
- screens.forEach((s,n)=>s.classList.toggle('active',n===current));
- document.getElementById('counter').textContent=String(current+1).padStart(2,'0')+' / '+String(screens.length).padStart(2,'0');
- document.getElementById('progress').style.width=((current+1)/screens.length*100)+'%';
- back.disabled=current===0;
- next.textContent=current===screens.length-1?'Start again ↻':'Next →';
- if(current===screens.length-1) next.textContent='Back to beginning ↻';
-}
-function move(dir){if(current===screens.length-1&&dir===1){showScreen(0);return}showScreen(current+dir)}
-function makeHeart(){
- const h=document.createElement('div');h.className='heart';h.textContent=['♡','♥','✧','🌹'][Math.floor(Math.random()*4)];
- h.style.left=Math.random()*100+'vw';h.style.fontSize=(14+Math.random()*22)+'px';
- const duration=5+Math.random()*5;h.style.animationDuration=duration+'s';document.body.appendChild(h);setTimeout(()=>h.remove(),duration*1000);
-}
-setInterval(makeHeart,850);
-function openPhoto(src){document.getElementById('lightboxImg').src=src;document.getElementById('lightbox').style.display='grid'}
-function closePhoto(){document.getElementById('lightbox').style.display='none'}
-function runAway(){
- const b=document.getElementById('noBtn');const pad=18;
- const maxX=Math.max(pad,window.innerWidth-b.offsetWidth-pad),maxY=Math.max(pad,window.innerHeight-b.offsetHeight-pad);
- b.style.position='fixed';b.style.left=(pad+Math.random()*(maxX-pad))+'px';b.style.top=(pad+Math.random()*(maxY-pad))+'px';b.style.zIndex=25;
-}
-function sayYes(){document.getElementById('answer').style.display='block';for(let i=0;i<35;i++)setTimeout(makeHeart,i*80)}
-document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')move(1);if(e.key==='ArrowLeft')move(-1);if(e.key==='Escape')closePhoto()});
-showScreen(0);
-</script>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<footer>MADE WITH <span>♥</span> JUST FOR YOU, NISHA</footer>
+<script src="script.js"></script>
 </body>
 </html>
